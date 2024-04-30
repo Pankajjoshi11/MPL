@@ -1,0 +1,20 @@
+.MODEL SMALL
+.DATA
+A DW 8AC5H
+B DW 4537H
+C DW 0000H
+D DW 0000H
+.CODE
+START: MOV AX,@DATA
+       MOV DS,AX
+       MOV CX,0000H
+       MOV AX,A
+       MOV BX,B
+       ADD AX,BX
+       JNC GO
+       INC CX
+    GO:MOV C,AX
+       MOV D,CX
+       INT 21H
+       END START
+       END CODE
